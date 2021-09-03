@@ -71,7 +71,8 @@ int main(void)
     PORTC.PIN7CTRL = 0b00001000; //Ativando função pull-up para uso do botão
     PORTC.DIR = 0b01000000; //Pino PC6 como output e o pino PC7 como input
     PORTC.OUT &= 0x00; //Acende o LED
-    float i = 0;
+    float i = 0; //variável que irá contar a quantidade de vezes em que o botão foi acionado
+
    /* do{
         
     }while(NVMCTRL.STATUS = 0x02);
@@ -91,7 +92,8 @@ int main(void)
 
         if (button_state()) { //Chama a função que irá verificar se o botão está
             //apertado
-            i++;
+            i++; //soma à quantidade de vezes que o botão foi apertado
+
             PORTC.OUTTGL = 0b01000000; //Função toggle: altera a situação do LED
             //write_B_eeprom();
             // eeprom_update_float(i, );
